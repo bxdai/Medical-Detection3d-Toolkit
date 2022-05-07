@@ -63,10 +63,24 @@ def get_image_list(image_folder):
 
 if __name__ == '__main__':
 
-    image_list = get_image_list('/mnt/projects/CT_Dental/data_v2')
+    #image_list = get_image_list('/mnt/projects/CT_Dental/data_v2')
+    # split_dataset(image_list,
+    #               '/shenlab/lab_stor6/projects/CT_Dental/data_v2',
+    #               '/shenlab/lab_stor6/projects/CT_Dental/landmark_v2',
+    #               '/shenlab/lab_stor6/projects/CT_Dental/landmark_mask_v2',
+    #               '/mnt/projects/CT_Dental/dataset/landmark_detection/face')
+
+    # image_list = get_image_list('C:/project/Model-Zoo/Dental/detection/landmark/test_data-2-data/data_v2')
+    # split_dataset(image_list,
+    #               'C:/project/Model-Zoo/Dental/detection/landmark/test_data-2-data/data_v2',
+    #               'C:/project/Model-Zoo/Dental/detection/landmark/test_data-2-data/landmark_v2',
+    #               'C:/project/Model-Zoo/Dental/detection/landmark/test_data-2-data/landmark_mask_v2',
+    #               'C:/project/Model-Zoo/Dental/detection/landmark/test_data-2-data/dataset')
+
+    image_list = get_image_list('C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/CT_data')
     split_dataset(image_list,
-                  '/shenlab/lab_stor6/projects/CT_Dental/data_v2',
-                  '/shenlab/lab_stor6/projects/CT_Dental/landmark_v2',
-                  '/shenlab/lab_stor6/projects/CT_Dental/landmark_mask_v2',
-                  '/mnt/projects/CT_Dental/dataset/landmark_detection/face')
+                  'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/CT_data',
+                  'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/landmark_csv',
+                  'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/landmark_mask',
+                  'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/dataset')
 
