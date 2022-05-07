@@ -22,7 +22,8 @@ def split_dataset(image_list, image_folder, landmark_file_folder, landmark_mask_
         print(name)
         image_path = os.path.join(image_folder, name, 'org.nii.gz')
         landmark_file_path = os.path.join(landmark_file_folder, '{}.csv'.format(name))
-        landmark_mask_path = os.path.join(landmark_mask_folder, name, '{}.nii.gz'.format(name))
+        #landmark_mask_path = os.path.join(landmark_mask_folder, name, '{}.nii.gz'.format(name))
+        landmark_mask_path = os.path.join(landmark_mask_folder, '{}.nii.gz'.format(name))
         content.append([name, image_path, landmark_file_path, landmark_mask_path])
 
     csv_file_path = os.path.join(output_folder, 'train.csv')
@@ -77,10 +78,17 @@ if __name__ == '__main__':
     #               'C:/project/Model-Zoo/Dental/detection/landmark/test_data-2-data/landmark_mask_v2',
     #               'C:/project/Model-Zoo/Dental/detection/landmark/test_data-2-data/dataset')
 
-    image_list = get_image_list('C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/CT_data')
+    # image_list = get_image_list('C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/CT_data')
+    # split_dataset(image_list,
+    #               'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/CT_data',
+    #               'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/landmark_csv',
+    #               'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/landmark_mask',
+    #               'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/dataset')
+
+    image_list = get_image_list('C:/project/Model-Zoo/Dental/detection/landmark/spine_data/CT_data')
     split_dataset(image_list,
-                  'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/CT_data',
-                  'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/landmark_csv',
-                  'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/landmark_mask',
-                  'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/dataset')
+                  'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/CT_data',
+                  'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/landmark_csv',
+                  'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/landmark_mask',
+                  'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/dataset')
 

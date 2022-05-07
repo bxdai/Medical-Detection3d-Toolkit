@@ -113,10 +113,15 @@ def main():
   # #default_label = 'C:/project/Model-Zoo/Dental/detection/landmark/test_data-2/landmark_label_file_batch_{}.csv'.format(default_batch_idx)
 
 
-  default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/CT_data'
-  default_landmark = 'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/landmark_csv'
-  default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/batch_{}_1.5mm'.format(default_batch_idx)
-  default_label = 'C:/project/Medical-Detection3d-Toolkit/detection3d/scripts/landmark_label_file_batch_{}.csv'.format(default_batch_idx)
+  # default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/CT_data'
+  # default_landmark = 'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/landmark_csv'
+  # default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/batch_{}_1.5mm'.format(default_batch_idx)
+  # default_label = 'C:/project/Medical-Detection3d-Toolkit/detection3d/scripts/landmark_label_file_batch_{}.csv'.format(default_batch_idx)
+
+  default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/CT_data'
+  default_landmark = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/landmark_csv'
+  default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/landmark_mask'
+  default_label = 'C:/project/Medical-Detection3d-Toolkit/detection3d/scripts/landmark_label_file_spine.csv'
 
   default_spacing = [1.5, 1.5, 1.5]
   default_pos_upper_bound = 3
