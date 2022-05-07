@@ -10,11 +10,26 @@ def main():
                        '2. A text file containing paths of all testing images\n' \
                        '3. A folder containing all testing images\n'
 
-    default_input = '/shenlab/lab_stor6/projects/CT_Dental/dataset/landmark_detection/test_1_server.csv'
-    default_model = '/shenlab/lab_stor6/qinliu/projects/CT_Dental/models/model_0502_2020/batch_1'
-    default_output = '/shenlab/lab_stor6/qinliu/projects/CT_Dental/results/model_0502_2020/batch_1/test_set/'
+    #default_input = '/shenlab/lab_stor6/projects/CT_Dental/dataset/landmark_detection/test_1_server.csv'
+    #default_model = '/shenlab/lab_stor6/qinliu/projects/CT_Dental/models/model_0502_2020/batch_1'
+    #default_output = '/shenlab/lab_stor6/qinliu/projects/CT_Dental/results/model_0502_2020/batch_1/test_set/'
+    
+    #default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/test_data/org.mha'
+    #default_model = 'C:/project/Model-Zoo/Dental/detection/landmark/model_0531_2020/batch_1'
+    #default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/model_0531_2020/batch_1/test_set/'
+
+    # default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/test_data-2-data/test/21_0000.nii.gz'
+    # default_model = 'C:/project/Model-Zoo/Dental/detection/landmark/test_data-2-data/models/'
+    # default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/test_data-2-data/test'
+
+
+
+    default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/CT_data/case18-0725/org.nii.gz'
+    default_model = 'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/models/'
+    default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone'
+
     default_save_prob = False
-    default_gpu_id = 5
+    default_gpu_id = 0
 
     parser = argparse.ArgumentParser(description=long_description)
     parser.add_argument('-i', '--input', default=default_input,

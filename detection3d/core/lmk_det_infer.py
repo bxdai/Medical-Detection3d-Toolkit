@@ -283,6 +283,8 @@ def detection(input_path, model_folder, gpu_id, return_landmark_file, save_landm
                                      model['interpolation'])
         assert isinstance(iso_image, sitk.Image)
 
+        #sitk.WriteImage(iso_image,"my_resample_pre_input.nii.gz")
+
         start_voxels = [[0, 0, 0]]
         end_voxels = [[int(iso_image.GetSize()[idx]) for idx in range(3)]]
 

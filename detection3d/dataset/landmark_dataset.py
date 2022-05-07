@@ -231,6 +231,9 @@ class LandmarkDetectionDataset(Dataset):
     reordered_selected_mask = sitk.GetImageFromArray(reordered_selected_mask_npy)
     reordered_selected_mask.CopyInformation(landmark_mask)
 
+    #
+    #sitk.WriteImage(reordered_selected_mask,'my_reordered_selected_mask.nii.gz')
+
     return reordered_selected_mask
 
   def __getitem__(self, index):
