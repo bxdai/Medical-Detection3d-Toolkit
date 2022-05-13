@@ -3,6 +3,7 @@ import SimpleITK as sitk
 import numpy as np
 import os
 import pandas as pd
+from glob import glob
 
 from detection3d.utils.image_tools import resample_spacing
 from detection3d.utils.landmark_utils import is_world_coordinate_valid, is_voxel_coordinate_valid
@@ -41,6 +42,52 @@ def gen_single_landmark_mask(ref_image, landmark_df, spacing, pos_upper_bound, n
   landmark_mask.CopyInformation(ref_image)
 
   return landmark_mask
+
+def gen_landmark_mask_batch2(image_folder,target_landmark_label,spacing,pos_upper_bound, neg_lower_bound, landmark_mask_save_folder):
+  """
+  Generate landmark mask for a batch of images
+  Parameters
+  ----------
+    image_folder : include nii.gz and csv file
+    landmark_label: 定义mask_label 的文件
+
+
+  """
+ # get image name list
+  images_train = sorted(glob(os.path.join(image_folder, "case*.nii.gz")))
+  csv_train = sorted(glob(os.path.join(image_folder, "case*.csv")))
+    #print(images)
+  print(f"image size:{len(images_train)}")
+    #print(segs)
+  print(f"label size:{len(csv_train)}")
+  train_files = [{"img":img, "csv":landmark} for img, landmark in zip(images_train, csv_train)]
+
+  for f in train_files:
+    print(f["img"])
+    print(f["csv"])
+    landmark_df = pd.read_csv(f["csv"])
+    target_landmark_df = {}
+    for landmark_name in target_landmark_label.keys():
+      landmark_label = target_landmark_label[landmark_name]
+      x = landmark_df[landmark_df['name'] == landmark_name]['x'].values[0]
+      y = landmark_df[landmark_df['name'] == landmark_name]['y'].values[0]
+      z = landmark_df[landmark_df['name'] == landmark_name]['z'].values[0]
+      if is_world_coordinate_valid([x, y, z]):
+        target_landmark_df[landmark_name] = {}
+        target_landmark_df[landmark_name]['label'] = landmark_label
+        target_landmark_df[landmark_name]['x'] = float(x)
+        target_landmark_df[landmark_name]['y'] = float(y)
+        target_landmark_df[landmark_name]['z'] = float(z)
+
+    image = sitk.ReadImage(f["img"])
+    landmark_mask = gen_single_landmark_mask(
+      image, target_landmark_df, spacing, pos_upper_bound, neg_lower_bound
+    )
+
+    basename = os.path.basename(f['csv'])[:-4]
+    sitk.WriteImage(landmark_mask, os.path.join(landmark_mask_save_folder, '{}.nii.gz'.format(basename)), True)
+
+
 
 
 def gen_landmark_mask_batch(image_folder, landmark_folder, target_landmark_label,
@@ -93,7 +140,10 @@ def generate_landmark_mask(image_folder, landmark_folder, landmark_label_file, s
     target_landmark_label.update({row[1]['landmark_name']: row[1]['landmark_label']})
 
   pos_upper_bound, neg_lower_bound = bound[0], bound[1]
-  gen_landmark_mask_batch(image_folder, landmark_folder, target_landmark_label, spacing,
+  #gen_landmark_mask_batch(image_folder, landmark_folder, target_landmark_label, spacing,
+  #                        pos_upper_bound, neg_lower_bound, save_folder)
+
+  gen_landmark_mask_batch2(image_folder, target_landmark_label, spacing,
                           pos_upper_bound, neg_lower_bound, save_folder)
 
 
@@ -118,9 +168,14 @@ def main():
   # default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/batch_{}_1.5mm'.format(default_batch_idx)
   # default_label = 'C:/project/Medical-Detection3d-Toolkit/detection3d/scripts/landmark_label_file_batch_{}.csv'.format(default_batch_idx)
 
-  default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/CT_data'
-  default_landmark = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/landmark_csv'
-  default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/landmark_mask'
+  # default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/CT_data'
+  # default_landmark = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/landmark_csv'
+  # default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/landmark_mask'
+  # default_label = 'C:/project/Medical-Detection3d-Toolkit/detection3d/scripts/landmark_label_file_spine.csv'
+
+  default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/data/raw'
+  default_landmark = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/raw'
+  default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/data/landmark_mask'
   default_label = 'C:/project/Medical-Detection3d-Toolkit/detection3d/scripts/landmark_label_file_spine.csv'
 
   default_spacing = [1.5, 1.5, 1.5]
