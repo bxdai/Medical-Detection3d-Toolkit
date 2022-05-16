@@ -9,7 +9,7 @@ def main():
     parser = argparse.ArgumentParser(description=long_description)
 
     parser.add_argument('-i', '--input',
-                        default='c:/project/Medical-Detection3d-Toolkit/detection3d/config/lmk_train_config_batch_8.py',
+                        default='c:/project/Medical-Detection3d-Toolkit/detection3d/config/lmk_train_config_for_spine.py',
                         help='configure file for medical image segmentation training.')
     parser.add_argument('-g', '--gpus',
                         default='0',

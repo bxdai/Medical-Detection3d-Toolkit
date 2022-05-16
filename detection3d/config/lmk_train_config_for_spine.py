@@ -9,7 +9,7 @@ cfg = __C
 ##################################
 __C.general = {}
 
-__C.general.training_image_list_file = 'C:/project/Model-Zoo/Dental/detection/landmark/test_data-2-data/dataset/train.csv'
+__C.general.training_image_list_file = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/dataset/train.csv'
 
 __C.general.validation_image_list_file = ''
 
@@ -21,7 +21,7 @@ __C.general.target_landmark_label = {
     'LRtarget': 4
 }
 
-__C.general.save_dir = 'C:/project/Model-Zoo/Dental/detection/landmark/test_data-2-data/models/'
+__C.general.save_dir = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/models/'
 
 __C.general.resume_epoch = -1
 
@@ -97,7 +97,7 @@ __C.net.name = 'vdnet'
 ##################################
 __C.train = {}
 
-__C.train.epochs = 2001
+__C.train.epochs = 5001
 
 __C.train.batch_size = 4
 
