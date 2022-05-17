@@ -58,14 +58,14 @@ def csv_fscv_batch(csv_dir):
         if f.endswith(".csv"):
             csv_file = os.path.join(csv_dir,f)
             fcsv_file = csv_file.replace(".csv",".fcsv")
-            lands = extract_lands_map_for_csv(f)
+            lands = extract_lands_map_for_csv(csv_file)
             write_lands_map_to_fcsv(lands,fcsv_file)
 
 
 
 
 if __name__ == '__main__':
-    csv_fscv_batch('C:/project/Medical-Detection3d-Toolkit/data/spine/')
+    csv_fscv_batch('C:/Users/Bxd/Desktop/testData/badData/landmark/1/')
     # filename = 'C:/project/Medical-Detection3d-Toolkit/data/spine/case_0001_patient.csv'
     # target_name = 'C:/project/Medical-Detection3d-Toolkit/data/spine/case_0001_patient.fcsv'
     # lands = extract_lands_map_for_csv(filename)
