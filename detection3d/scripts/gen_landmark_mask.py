@@ -143,6 +143,9 @@ def generate_landmark_mask(image_folder, landmark_folder, landmark_label_file, s
   #gen_landmark_mask_batch(image_folder, landmark_folder, target_landmark_label, spacing,
   #                        pos_upper_bound, neg_lower_bound, save_folder)
 
+  if not os.path.exists(save_folder):
+    os.makedirs(save_folder)
+
   gen_landmark_mask_batch2(image_folder, target_landmark_label, spacing,
                           pos_upper_bound, neg_lower_bound, save_folder)
 
@@ -173,9 +176,14 @@ def main():
   # default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/landmark_mask'
   # default_label = 'C:/project/Medical-Detection3d-Toolkit/detection3d/scripts/landmark_label_file_spine.csv'
 
-  default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/data/raw'
-  default_landmark = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/raw'
-  default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/data/landmark_mask'
+  # default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/data/raw'
+  # default_landmark = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/raw'
+  # default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/data/landmark_mask'
+  # default_label = 'C:/project/Medical-Detection3d-Toolkit/detection3d/scripts/landmark_label_file_spine.csv'
+
+  default_input = 'C:/project\/Medical-Detection3d-Toolkit/data/spine'
+  default_landmark = 'C:/project/Medical-Detection3d-Toolkit/data/spine'
+  default_output = 'C:/project/Medical-Detection3d-Toolkit/data/landmark_mask'
   default_label = 'C:/project/Medical-Detection3d-Toolkit/detection3d/scripts/landmark_label_file_spine.csv'
 
   default_spacing = [1.5, 1.5, 1.5]
