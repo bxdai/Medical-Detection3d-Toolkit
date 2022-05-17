@@ -68,7 +68,7 @@ def split_dataset(data_list_folder, output_folder):
         print(data['mask'])
         print(data['csv'])
         basename = os.path.basename(data['csv'])[:-4]
-        content.append([basename, data['img'], data['mask'], data['csv']])
+        content.append([basename, data['img'], data['csv'],data['mask']])
     csv_file_path = os.path.join(output_folder, 'train.csv')
     columns = ['image_name', 'image_path', 'landmark_file_path', 'landmark_mask_path']
     df = pd.DataFrame(data=content, columns=columns)
@@ -83,7 +83,7 @@ def split_dataset(data_list_folder, output_folder):
         print(data['mask'])
         print(data['csv'])
         basename = os.path.basename(data['csv'])[:-4]
-        content.append([basename, data['img'], data['mask'], data['csv']])
+        content.append([basename, data['img'], data['csv'],data['mask']])
 
     csv_file_path = os.path.join(output_folder, 'test.csv')
     columns = ['image_name', 'image_path', 'landmark_file_path', 'landmark_mask_path']
@@ -151,7 +151,7 @@ if __name__ == '__main__':
     #               'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/landmark_csv',
     #               'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/landmark_mask',
     #               'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/dataset')
-    data_list = get_data_list("C:/project/Model-Zoo/Dental/detection/landmark/spine_data/data/raw",
-    "C:/project/Model-Zoo/Dental/detection/landmark/spine_data//data/landmark_mask")
-    split_dataset(data_list,'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/data/dataset')
+    data_list = get_data_list("C:\project\Medical-Detection3d-Toolkit\data\spine",
+    "C:\project\Medical-Detection3d-Toolkit\data\landmark_mask")
+    split_dataset(data_list,'C:\project\Medical-Detection3d-Toolkit\data\dataset')
 
