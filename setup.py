@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-required_packages = ['numpy', 'torch', 'easydict', 'SimpleITK']
+required_packages = ['numpy', 'torch', 'easydict', 'SimpleITK'，'vtk']
 
 
 setup(name='detection3d',
