@@ -65,7 +65,10 @@ def csv_fscv_batch(csv_dir):
 
 
 if __name__ == '__main__':
-    csv_fscv_batch('C:/Users/Bxd/Desktop/testData/badData/landmark/1/')
+    #csv_fscv_batch('C:/Users/Bxd/Desktop/testData/badData/landmark/1/')
+    #csv_fscv_batch("C:/Users/Bxd/Documents/VisualSpine/SpineLandmark/output/")
+    #csv_fscv_batch("C:\project\Medical-Detection3d-Toolkit\data\pelvic")
+    csv_fscv_batch("C:\\project\\Medical-Detection3d-Toolkit\\data\PelvicBone\\17-1882")
     # filename = 'C:/project/Medical-Detection3d-Toolkit/data/spine/case_0001_patient.csv'
     # target_name = 'C:/project/Medical-Detection3d-Toolkit/data/spine/case_0001_patient.fcsv'
     # lands = extract_lands_map_for_csv(filename)

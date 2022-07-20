@@ -28,10 +28,10 @@ def main():
     # default_model = 'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone/models/'
     # default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/pelvicBone'
 
-    default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/infer_data/test'
+    default_input = 'C:\\Users\\Bxd\\Desktop\\testData\\badData\\landmark\\1'
     #default_input = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/infer_data/case_0030_paitent/1.3.6.1.4.1.9328.50.4.0007_20_0000.nii.gz'
-    default_model = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/models/'
-    default_output = 'C:/project/Model-Zoo/Dental/detection/landmark/spine_data/infer_data'
+    default_model = 'C:/project/Medical-Detection3d-Toolkit/data/models/'
+    default_output = 'C:\\Users\\Bxd\\Desktop\\testData\\badData\\landmark\\1'
 
     default_save_prob = False
     default_gpu_id = 0
